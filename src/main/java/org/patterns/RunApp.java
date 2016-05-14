@@ -2,7 +2,14 @@ package org.patterns;
 
 public class RunApp {
 
-	public void run() {
-		System.out.println("Hello Patterns!");
+	private Strategy strategy;
+
+	public RunApp(Strategy strategy) {
+		this.strategy = strategy;
 	}
+
+	public void run() {
+		strategy.print("Hello Patterns!");
+	}
+
 }
