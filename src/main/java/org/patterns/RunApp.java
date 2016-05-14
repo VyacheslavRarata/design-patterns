@@ -2,14 +2,14 @@ package org.patterns;
 
 public class RunApp {
 
-	private Strategy strategy;
+	private Target target;
 
-	public RunApp(Strategy strategy) {
-		this.strategy = strategy;
+	public RunApp(Target target) {
+		this.target = target;
 	}
 
 	public void run() {
-		strategy.print("Hello Patterns!");
+		target.addMessages("Hello Patterns!", "Hello Adapter!");
 	}
 
 }

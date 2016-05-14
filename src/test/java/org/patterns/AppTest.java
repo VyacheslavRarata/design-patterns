@@ -6,6 +6,8 @@ import org.junit.Test;
 
 /**
  * Unit test for simple App.
+ * 
+ * this is integration test
  */
 public class AppTest {
 
@@ -17,6 +19,6 @@ public class AppTest {
 		// when
 		App.main(new String[0]);
 		// then
-		assertEquals("Hello Patterns!\r\n", console.getOut());
+		assertEquals("Hello Patterns!\r\nHello Adapter!\r\n", console.getOut());
 	}
 }

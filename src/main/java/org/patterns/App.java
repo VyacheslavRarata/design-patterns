@@ -7,7 +7,7 @@ package org.patterns;
 public class App {
 
 	public static void main(String[] args) {
-		new RunApp(ConsoleStrategy.getInstance()).run();
+		new RunApp(new Adapter(ConsoleStrategy.getInstance())).run();
 
 	}
 
