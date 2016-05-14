@@ -7,8 +7,7 @@ package org.patterns;
 public class App {
 
 	public static void main(String[] args) {
-		Strategy strategy = new ConsoleStrategy();
-		new RunApp(strategy).run();
+		new RunApp(ConsoleStrategy.getInstance()).run();
 
 	}
 
