@@ -2,11 +2,10 @@ package org.patterns;
 
 public class ReplaceSpaceTo extends Decorator {
 
-	private String replacement;
+	private String replacement = "-";
 
-	public ReplaceSpaceTo(Component component, String replacement) {
+	public ReplaceSpaceTo(Component component) {
 		super(component);
-		this.replacement = replacement;
 	}
 
 	@Override

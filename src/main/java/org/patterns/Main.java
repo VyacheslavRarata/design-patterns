@@ -13,18 +13,15 @@ public class Main {
 	}
 
 	private static void proccess(String message, AbstractFactory factory) {
-		Runner runner = RunnerFactory.create();
-		runner.addTarget(new Adapter(ConsoleStrategy.getInstance()));
-
-		InMemoryStrategy inMemory = new InMemoryStrategy();
-		runner.addTarget(new Adapter(inMemory));
-
-		runner.addHandler(new HelloPatternsHandler(new AddSymbolCommand(factory)));
-		runner.addHandler(new HelloPatternsHandler(new AddEmotionsCommand(factory)));
-		// decoration
-		Component component = runner;
-		component = new ToUpperCaseDecorator(component);
-		component = new ReplaceSpaceTo(component, factory.getSymbol().get());
+		
+		Component component = RunnerBuilder
+				.forStrategy(ConsoleStrategy.getInstance())
+				.andStrategy(new InMemoryStrategy())
+				.andHelloPatternsCommand(new AddEmotionsCommand(factory))
+				.andHandler(NullHandler.NULL)
+				.andDecorator(ToUpperCaseDecorator.class)
+				.andDecorator(ReplaceSpaceTo.class)
+				.create();
 		component.run(message);
 	}
 

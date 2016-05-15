@@ -2,7 +2,7 @@ package org.patterns;
 
 public class ToUpperCaseDecorator extends Decorator{
 
-	protected ToUpperCaseDecorator(Component component) {
+	public ToUpperCaseDecorator(Component component) {
 		super(component);
 	}
 
