@@ -1,6 +1,6 @@
 package org.patterns;
 
-public interface Observable {
+public interface Observable extends MyIterable<Observer>{
 
 	void addObserver(Observer observer);
 
