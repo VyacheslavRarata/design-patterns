@@ -18,6 +18,6 @@ public class MainTest {
 		// when
 		Main.main(new String[0]);
 		// then
-		assertEquals("HELLO-PATTERNS!\u263A\r\n", console.getOut());
+		assertEquals("HELLO...PATTERNS...\u2639\r\n", console.getOut());
 	}
 }
