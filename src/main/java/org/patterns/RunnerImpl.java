@@ -3,7 +3,7 @@ package org.patterns;
 public class RunnerImpl implements Runner {
 
 	private Observable observable = new ObservableImpl();
-	private Handler handler = new NullHandler();
+	private Handler handler = Handler.NULL;
 
 	@Override
 	public void addTarget(Target target) {
@@ -12,7 +12,11 @@ public class RunnerImpl implements Runner {
 
 	@Override
 	public void addHandler(Handler handler) {
-		this.handler = handler;
+		if (this.handler == Handler.NULL) {
+			this.handler = handler;
+		} else {
+			this.handler.addNext(handler);
+		}
 	}
 
 	@Override

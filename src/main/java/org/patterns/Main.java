@@ -15,8 +15,8 @@ public class Main {
 		InMemoryStrategy inMemory = new InMemoryStrategy();
 		runner.addTarget(new Adapter(inMemory));
 
-		Handler handler = new HelloPatternsHandler();
-		runner.addHandler(handler);
+		runner.addHandler(new HelloPatternsHandler("!"));
+		runner.addHandler(new HelloPatternsHandler("\u263A"));
 		// decoration
 		Component component = runner;
 		component = new ToUpperCaseDecorator(component);
