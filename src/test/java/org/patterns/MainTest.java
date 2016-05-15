@@ -9,14 +9,14 @@ import org.junit.Test;
  * 
  * this is integration test
  */
-public class AppTest {
+public class MainTest {
 
 	@Test
 	public void test() {
 		// given
 		ConsoleMock console = new ConsoleMock();
 		// when
-		App.main(new String[0]);
+		Main.main(new String[0]);
 		// then
 		assertEquals("HELLO-PATTERNS!\r\n", console.getOut());
 	}

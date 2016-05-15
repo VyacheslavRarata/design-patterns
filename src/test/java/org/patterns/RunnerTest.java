@@ -8,16 +8,17 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class RunAppTest {
+public class RunnerTest {
 
 	@Test
 	public void test() {
 
 		// given
 		InMemoryStrategy strategy = new InMemoryStrategy();
-		Component component = new RunApp(new Adapter(strategy));
+		Runner runner = new Runner();
+		runner.addTarget(new Adapter(strategy));
 		// when
-		component.run("Hello Patterns!");
+		runner.run("Hello Patterns!");
 		// then
 		assertEquals("[Hello Patterns!]", strategy.getMessages().toString());
 	}
@@ -28,14 +29,16 @@ public class RunAppTest {
 	public void test2() {
 
 		// given
-		Component component = new RunApp(new Target() {
+		Runner runner = new Runner();
+		runner.addTarget(new Target() {
 			@Override
 			public void addMessages(String... messages) {
-				RunAppTest.this.messages.addAll(Arrays.asList(messages));
+				RunnerTest.this.messages.addAll(Arrays.asList(messages));
 			}
 		});
+
 		// when
-		component.run("Hello Patterns!");
+		runner.run("Hello Patterns!");
 		// then
 		assertEquals("[Hello Patterns!]", messages.toString());
 	}
