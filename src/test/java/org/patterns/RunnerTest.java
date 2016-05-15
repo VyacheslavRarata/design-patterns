@@ -14,8 +14,8 @@ public class RunnerTest {
 	public void test() {
 
 		// given
+		Runner runner = RunnerFactory.create();
 		InMemoryStrategy strategy = new InMemoryStrategy();
-		Runner runner = new Runner();
 		runner.addTarget(new Adapter(strategy));
 		// when
 		runner.run("Hello Patterns!");
@@ -29,14 +29,13 @@ public class RunnerTest {
 	public void test2() {
 
 		// given
-		Runner runner = new Runner();
+		Runner runner = RunnerFactory.create();
 		runner.addTarget(new Target() {
 			@Override
 			public void addMessages(String... messages) {
 				RunnerTest.this.messages.addAll(Arrays.asList(messages));
 			}
 		});
-
 		// when
 		runner.run("Hello Patterns!");
 		// then

@@ -1,16 +1,7 @@
 package org.patterns;
 
-public class Runner implements Component {
+public interface Runner extends Component {
 
-	private Observable observable = new ObservableImpl();
-
-	public void addTarget(Target target) {
-		observable.addObserver(new TargetObserverAdapter(target));
-	}
-
-	@Override
-	public void run(String message) {
-		observable.notifyAllObservers(message);
-	}
+	void addTarget(Target target);
 
 }

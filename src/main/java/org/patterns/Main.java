@@ -9,11 +9,13 @@ public class Main {
 	public static void main(String[] args) {
 		String message = "Hello Patterns!";
 
-		InMemoryStrategy inMemory = new InMemoryStrategy();
-		Runner runner = new Runner();
+		Runner runner = RunnerFactory.create();
 		runner.addTarget(new Adapter(ConsoleStrategy.getInstance()));
+
+		InMemoryStrategy inMemory = new InMemoryStrategy();
 		runner.addTarget(new Adapter(inMemory));
 
+		// decoration
 		Component component = runner;
 		component = new ToUpperCaseDecorator(component);
 		component = new ReplaceSpaceTo(component, "-");
