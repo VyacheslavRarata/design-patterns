@@ -9,11 +9,12 @@ public class HelloPatternsHandler extends Handler {
 	}
 
 	@Override
-	protected void handleRequest(Request request) {
+	protected Request handleRequest(Request request) {
 		String hello = request.getMessage().toLowerCase();
-		if (hello.contains("hello") && hello.contains("patterns")) {
-			command.change(request);
+		if (!hello.contains("hello") || !hello.contains("patterns")) {
+			return request;
 		}
+		return command.change(request);
 
 	}
 

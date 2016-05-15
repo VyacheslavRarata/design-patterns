@@ -9,8 +9,8 @@ public class AddSymbolCommand implements Command {
 	}
 
 	@Override
-	public void change(Request request) {
-		request.setMessage(request.getMessage() + factory.getSymbol().get());
+	public Request change(Request request) {
+		return new Request(request.getMessage() + factory.getSymbol().get());
 	}
 
 }

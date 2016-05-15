@@ -22,9 +22,8 @@ public class RunnerImpl implements Runner {
 	@Override
 	public void run(String message) {
 		Request request = new Request(message);
-		handler.handle(request);
-
-		observable.notifyAllObservers(request.getMessage());
+		Request changed = handler.handle(request);
+		observable.notifyAllObservers(changed.getMessage());
 	}
 
 }

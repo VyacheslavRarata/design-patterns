@@ -1,9 +1,12 @@
 package org.patterns;
 
-public class Request {
+public final class Request {
 
-	private String message;
+	private final String message;
 
+	public Request(Request request) {
+		this.message = request.getMessage();
+	}
 	public Request(String message) {
 		this.message = message;
 	}
@@ -12,7 +15,4 @@ public class Request {
 		return message;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
 }
