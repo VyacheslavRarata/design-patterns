@@ -13,12 +13,11 @@ public class AppTest {
 
 	@Test
 	public void test() {
-
 		// given
 		ConsoleMock console = new ConsoleMock();
 		// when
 		App.main(new String[0]);
 		// then
-		assertEquals("Hello Patterns!\r\nHello Adapter!\r\n", console.getOut());
+		assertEquals("HELLO-PATTERNS!\r\n", console.getOut());
 	}
 }

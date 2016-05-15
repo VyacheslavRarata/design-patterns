@@ -1,6 +1,6 @@
 package org.patterns;
 
-public class RunApp {
+public class RunApp implements Component {
 
 	private Target target;
 
@@ -8,8 +8,9 @@ public class RunApp {
 		this.target = target;
 	}
 
-	public void run() {
-		target.addMessages("Hello Patterns!", "Hello Adapter!");
+	@Override
+	public void run(String message) {
+		target.addMessages(message);
 	}
 
 }

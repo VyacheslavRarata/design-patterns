@@ -7,7 +7,12 @@ package org.patterns;
 public class App {
 
 	public static void main(String[] args) {
-		new RunApp(new Adapter(ConsoleStrategy.getInstance())).run();
+		String message = "Hello Patterns!";
+
+		Component component = new RunApp(new Adapter(ConsoleStrategy.getInstance()));
+		component = new ToUpperCaseDecorator(component);
+		component = new ReplaceSpaceTo(component, "-");
+		component.run(message);
 
 	}
 

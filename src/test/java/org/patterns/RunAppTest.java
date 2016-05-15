@@ -15,11 +15,11 @@ public class RunAppTest {
 
 		// given
 		InMemoryStrategy strategy = new InMemoryStrategy();
-		RunApp runApp = new RunApp(new Adapter(strategy));
+		Component component = new RunApp(new Adapter(strategy));
 		// when
-		runApp.run();
+		component.run("Hello Patterns!");
 		// then
-		assertEquals("[Hello Patterns!, Hello Adapter!]", strategy.getMessages().toString());
+		assertEquals("[Hello Patterns!]", strategy.getMessages().toString());
 	}
 
 	protected List<String> messages = new LinkedList<>();
@@ -28,17 +28,16 @@ public class RunAppTest {
 	public void test2() {
 
 		// given
-
-		RunApp runApp = new RunApp(new Target() {
+		Component component = new RunApp(new Target() {
 			@Override
 			public void addMessages(String... messages) {
 				RunAppTest.this.messages.addAll(Arrays.asList(messages));
 			}
 		});
 		// when
-		runApp.run();
+		component.run("Hello Patterns!");
 		// then
-		assertEquals("[Hello Patterns!, Hello Adapter!]", messages.toString());
+		assertEquals("[Hello Patterns!]", messages.toString());
 	}
 
 }
