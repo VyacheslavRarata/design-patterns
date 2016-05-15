@@ -2,17 +2,17 @@ package org.patterns;
 
 public class HelloPatternsHandler extends Handler {
 
-	private final String symbol;
+	private final Command command;
 
-	public HelloPatternsHandler(String symbol) {
-		this.symbol = symbol;
+	public HelloPatternsHandler(Command command) {
+		this.command = command;
 	}
 
 	@Override
 	protected void handleRequest(Request request) {
 		String hello = request.getMessage().toLowerCase();
 		if (hello.contains("hello") && hello.contains("patterns")) {
-			request.setMessage(request.getMessage() + symbol);
+			command.change(request);
 		}
 
 	}
